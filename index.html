@@ -6,40 +6,40 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <center>
-        <body class="body">
+    <body class="body">
+      <div id="container">
+        <!-- START DIV -->
 
-          <div id="container">
-<!-- START DIV -->
+        <div id="start">
+          <h1>Welcome!</h1>
+          <button>Start Quiz</button>
+        </div>
 
-  <div id="Start">
-    <h1>Welcome!</h1>
-<button>Start Quiz</button>
-</div>
+        <!-- QUIZ DIV -->
 
-<!-- QUIZ DIV -->
+        <div id="quiz">
+          <div id="questions1">
+            Question here
+            <button id="a1" onclick="correctCounter()">Hi</button>
+            <button id="a1">Hello</button>
+          </div>
 
-  <div id="quiz" hidden>
-  <p id="question1">Question here</p>
-  <input type="radio" id="a1">Hi</input>
-  <input type="radio" id="a1">Hello</input>
-  <input type="radio" id="a1">Hola</input>
-  </div>
+          <div id="questions2">
+            Question here
+            <button id="a2">Greetings</button>
+            <button id="a2" onclick="correctCounter()">Bonjour</button>
+          </div>
+        </div>
 
-  <p id="question2" hidden>Question here</p>
-  <input type="radio" id="a1">Hi</input>
-  <input type="radio" id="a1">Hello</input>
-  <input type="radio" id="a1">Hola</input>
-  </div>
+        <!-- RESULTS DIV -->
 
-<!-- RESULTS DIV -->
+        <div id="results">
+          <p>You got <span id="result"></span> answers correct!</p>
+        </div>
+      </div>
+    </body>
 
-  <div id="results" hidden>
-    <p>Results go here:</p>
-</div>
-
-</div>
-</div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="script.js"></script>
-  </body>
+  </center>
 </html>
