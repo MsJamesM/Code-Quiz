@@ -18,3 +18,8 @@ function correctCounter() {
   document.getElementById("lastScore").innerHTML = counter;
   localStorage.setItem("lastScore", counter);
 }
+
+function clearAll() {
+  window.localStorage.clear();
+  window.location.reload();
+}
