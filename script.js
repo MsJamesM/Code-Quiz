@@ -54,14 +54,16 @@ $(document).ready(function () {
 
   function showResult() {
     $("#quizContainer").hide();
+    $("#welcomeContainer").hide();
     $("#result").text(
       "Your score is: " + score + " out of " + questions.length
     );
-    $("#result").show();
+    $("#resultContainer").show();
   }
 
   function startQuiz() {
     $("#startButton").hide();
+    $("#welcomeContainer").hide(); // Hide the welcomeContainer
     $("#quizContainer").show();
     showQuestion();
     $("#submit").click(checkAnswer);
