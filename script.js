@@ -54,7 +54,9 @@ $(document).ready(function () {
 
   function showResult() {
     $("#quizContainer").hide();
-    $("#result").text("Your score: " + score + " out of " + questions.length);
+    $("#result").text(
+      "Your score is: " + score + " out of " + questions.length
+    );
     $("#result").show();
   }
 
