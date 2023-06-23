@@ -3,6 +3,7 @@ $(document).ready(function () {
   var score = 0;
   var timer;
   var timeLeft = 60;
+  var quizEnd = false;
   const questions = [
     {
       question: "Question #1",
@@ -14,12 +15,27 @@ $(document).ready(function () {
       choices: ["answer #1", "answer #2", "answer #3"],
       correctAnswer: 3,
     },
+    {
+      question: "Question #3",
+      choices: ["answer #1", "answer #2", "answer #3"],
+      correctAnswer: 2,
+    },
+    {
+      question: "Question #4",
+      choices: ["answer #1", "answer #2", "answer #3"],
+      correctAnswer: 3,
+    },
   ];
 
   // timer upon "start"
 
   function startTimer() {
     timer = setInterval(function () {
+      if (quizEnd) {
+        clearInterval(timer);
+        return;
+      }
+
       timeLeft--;
       if (timeLeft <= 0) {
         clearInterval(timer);
@@ -61,6 +77,10 @@ $(document).ready(function () {
         timeLeft = 0;
       }
       $("#timerContainer").text("Time left: " + timeLeft + " seconds");
+      $("#timerContainer").addClass("wrong-answer");
+      setTimeout(function () {
+        $("#timerContainer").removeClass("wrong-answer");
+      }, 2000);
     }
 
     currentQuestion++;
@@ -74,8 +94,10 @@ $(document).ready(function () {
   // displays final results
 
   function showResult() {
+    quizEnd = true;
     $("#quizContainer").hide();
     $("#welcomeContainer").hide();
+    $(".wrong-answer").hide();
     $("#result").text(
       "Your score is: " + score + " out of " + questions.length
     );

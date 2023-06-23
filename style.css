@@ -14,3 +14,31 @@
 #quiz {
     grid: column;
 }
+
+#timerContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.wrong-answer {
+    color: red;
+}
+
+/*  or...
+
+.wrong-answer {
+    animation: blink 1s 2;
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
