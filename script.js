@@ -27,18 +27,46 @@ $(document).ready(function () {
     },
   ];
 
+  // welcome modal
+  function welcomeModal() {
+    $("#myModal").modal("show");
+  }
+
+  const modalState = localStorage.getItem("modalState");
+  if (!modalState) {
+    welcomeModal();
+    localStorage.setItem("modalState", true);
+  }
+
+  function resetModal() {
+    localStorage.removeItem("modalState");
+  }
+  $(window).on("beforeunload", function () {
+    resetModal();
+  });
+  $("#myModal .close").on("click", function () {
+    resetModal();
+  });
+
   // timer upon "start"
   function startTimer() {
-    timer = setInterval(function () {
+    var $timerContainer = $("#timerContainer");
+    $timerContainer.show();
+
+    var updateTimer = function () {
       timeLeft--;
       if (timeLeft <= 0) {
         clearInterval(timer);
         showResult();
       }
-      $("#timerContainer").html(
+      $timerContainer.html(
         '<i class="fa-solid fa-hourglass-start"></i> ' + timeLeft + " seconds!"
       );
-    }, 1000);
+    };
+
+    timeLeft--;
+    updateTimer();
+    timer = setInterval(updateTimer, 1000);
   }
 
   // displays questions
@@ -47,16 +75,19 @@ $(document).ready(function () {
     $("#question").text(question.question);
 
     var choices = question.choices;
-    $("#choices").empty();
+    var $choicesContainer = $("#choices");
+    $choicesContainer.empty();
+
     for (var i = 0; i < choices.length; i++) {
-      $("#choices").append(
-        "<button type='button' class='choiceButton' data-choice='" +
-          i +
-          "'>" +
-          choices[i] +
-          "</button>"
+      $choicesContainer.append(
+        $("<button>")
+          .addClass("choiceButton")
+          .attr("type", "button")
+          .data("choice", i)
+          .text(choices[i])
       );
     }
+
     $(".choiceButton").click(checkAnswer);
   }
 
@@ -133,32 +164,30 @@ $(document).ready(function () {
     var savedScores = localStorage.getItem("scores");
     if (savedScores) {
       savedScores = JSON.parse(savedScores);
-      var savedScoresList = $("#savedScores");
-      savedScoresList.empty();
+      var $savedScoresList = $("#savedScores");
+      $savedScoresList.empty();
+
       for (var i = 0; i < savedScores.length; i++) {
         var scoreDate = new Date().toLocaleDateString();
         var scoreText = "Your score was: " + savedScores[i];
 
-        savedScoresList.append(
-          "<li>" + scoreDate + " - " + scoreText + "</li>"
-        );
+        $savedScoresList.append($("<li>").text(scoreDate + " - " + scoreText));
       }
     }
   }
 
+  // click event for start button
   $("#startButton").click(function () {
-    startQuiz();
-  });
-
-  function startQuiz() {
     $("#startButton").hide();
     $("#welcomeContainer").hide();
+    $("#timerContainer").show();
     startTimer();
     $("#quizContainer").show();
     showQuestion();
     $("#submit").click(checkAnswer);
-  }
+  });
 
+  // load saved scores
   function loadSavedScores() {
     displaySavedScores();
   }
