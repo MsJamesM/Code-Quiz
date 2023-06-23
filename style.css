@@ -1,6 +1,6 @@
 .body {
     background: fixed;
-    background-image: linear-gradient(#860021, #a10028, #860021);
+    background-image: linear-gradient(#b40041, #6f0045);
 }
 
 .badBody {
@@ -9,11 +9,11 @@
 
 @keyframes blinkBackground {
     from {
-        background-image: linear-gradient(#860021, #a10028, #860021);
+        background-image: linear-gradient(#b40041, #6f0045);
     }
 
     to {
-        background-image: linear-gradient(#860021, #bf0635, #860021);
+        background-image: linear-gradient(#f30059, #6f0045);
     }
 }
 
@@ -21,20 +21,24 @@
     overflow: hidden;
     height: 30%;
     width: 60%;
-    margin-top: 10%;
+    margin-top: 3%;
     margin-bottom: 10%;
     padding: 2%;
     font-size: 25px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', sans-serif;
-    background-color: #fff8fafb;
-    box-shadow: 0px 3px 8px #46132287
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
+    overflow: hidden;
 }
 
 #welcomeContainer {
     z-index: 5;
 }
 
-#choices{
+#question {
+    color: white;
+    text-shadow: 0px 1px 2px #6f0045;
+}
+
+#choices {
     margin-right: 7%;
 }
 
@@ -46,14 +50,15 @@
     padding: 3%;
     margin-top: 2%;
     border: none;
-    color: white;
-    background-color: #ab1943;
+    color: #ffcece;
+    background-color: #5c003996;
+    box-shadow: 0px 2px 5px #7d023795;
     font-size: 16px;
     transition-duration: 0.4s;
 }
 
 .choiceButton:hover {
-    background-color: #4CAF50;
+    background-color: #cd005296;
     color: white;
 }
 
@@ -65,41 +70,24 @@
     padding: 2%;
     margin-top: 4px;
     border: none;
-    color: white;
-    background-color: rgb(197, 197, 197);
+    background-color: #5c003996;
+    box-shadow: 0px 2px 5px #7d023795;
     font-size: 16px;
     transition-duration: 0.4s;
 }
 
 .button:hover {
-    background-color: #4CAF50;
+    background-color: #cd005296;
     color: white;
 }
 
 #timer {
-    display: flex;
-    justify-content: flex-end;
+    padding-top: 4%;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', verdana;
+    color: white;
 }
 
 .wrong-answer {
-    color: red;
-}
-
-/*  or...
-
-.wrong-answer {
-    animation: blink 1s 2;
-
-@keyframes blink {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+    color: #ff5b71;
 }
