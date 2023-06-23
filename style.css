@@ -1,6 +1,10 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .body {
     background: fixed;
-    background-image: linear-gradient(#b40041, #6f0045);
+    background-image: linear-gradient(#b40041, #830051);
 }
 
 .badBody {
@@ -9,11 +13,11 @@
 
 @keyframes blinkBackground {
     from {
-        background-image: linear-gradient(#b40041, #6f0045);
+        background-image: linear-gradient(#b40041, #830051);
     }
 
     to {
-        background-image: linear-gradient(#f30059, #6f0045);
+        background-image: linear-gradient(#f30059, #830051);
     }
 }
 
@@ -25,7 +29,6 @@
     margin-bottom: 10%;
     padding: 2%;
     font-size: 25px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
     overflow: hidden;
 }
 
@@ -34,7 +37,7 @@
 }
 
 #question {
-    color: white;
+    color: #ffcefb;
     text-shadow: 0px 1px 2px #6f0045;
 }
 
@@ -50,10 +53,11 @@
     padding: 3%;
     margin-top: 2%;
     border: none;
-    color: #ffcece;
-    background-color: #5c003996;
+    color: #fac7f6;
+    text-shadow: 0px 1px 2px #340020;
+    background-color: #670040a1;
     box-shadow: 0px 2px 5px #7d023795;
-    font-size: 16px;
+    font-size: 20px;
     transition-duration: 0.4s;
 }
 
@@ -70,24 +74,32 @@
     padding: 2%;
     margin-top: 4px;
     border: none;
-    background-color: #5c003996;
+    color: #fac7f6;
+    text-shadow: 0px 1px 2px #340020;
+    background-color: #670040a1;
     box-shadow: 0px 2px 5px #7d023795;
-    font-size: 16px;
+    font-size: 22px;
     transition-duration: 0.4s;
 }
 
 .button:hover {
     background-color: #cd005296;
-    color: white;
+    color: #f1fcff;
 }
 
 #timer {
     padding-top: 4%;
-    font-size: 20px;
+    font-size: 30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', verdana;
-    color: white;
+    color: #ee045a;
+    text-shadow: 0px 1px 2px #3f0027;
+}
+
+.fa-hourglass-start {
+    padding-right: 1%;
+    font-size: 27px;
 }
 
 .wrong-answer {
-    color: #ff5b71;
+    color: #ff6aa3;
 }

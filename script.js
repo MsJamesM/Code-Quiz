@@ -30,17 +30,14 @@ $(document).ready(function () {
   // timer upon "start"
   function startTimer() {
     timer = setInterval(function () {
-      if (quizEnd) {
-        clearInterval(timer);
-        return;
-      }
-
       timeLeft--;
       if (timeLeft <= 0) {
         clearInterval(timer);
         showResult();
       }
-      $("#timerContainer").text("Time left: " + timeLeft + " seconds");
+      $("#timerContainer").html(
+        '<i class="fa-solid fa-hourglass-start"></i> ' + timeLeft + " seconds!"
+      );
     }, 1000);
   }
 
@@ -75,7 +72,9 @@ $(document).ready(function () {
       if (timeLeft < 0) {
         timeLeft = 0;
       }
-      $("#timerContainer").text("Time left: " + timeLeft + " seconds");
+      $("#timerContainer").html(
+        '<i class="fa-solid fa-hourglass-start"></i> ' + timeLeft + " seconds!"
+      );
       $("#timerContainer").addClass("wrong-answer");
       $("body").addClass("badBody");
       setTimeout(function () {
