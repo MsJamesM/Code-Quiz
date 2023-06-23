@@ -27,27 +27,6 @@ $(document).ready(function () {
     },
   ];
 
-  // welcome modal
-  function welcomeModal() {
-    $("#myModal").modal("show");
-  }
-
-  const modalState = localStorage.getItem("modalState");
-  if (!modalState) {
-    welcomeModal();
-    localStorage.setItem("modalState", true);
-  }
-
-  function resetModal() {
-    localStorage.removeItem("modalState");
-  }
-  $(window).on("beforeunload", function () {
-    resetModal();
-  });
-  $("#myModal .close").on("click", function () {
-    resetModal();
-  });
-
   // timer upon "start"
   function startTimer() {
     var $timerContainer = $("#timerContainer");
@@ -106,11 +85,11 @@ $(document).ready(function () {
       $("#timerContainer").html(
         '<i class="fa-solid fa-hourglass-start"></i> ' + timeLeft + " seconds!"
       );
-      $("#timerContainer").addClass("wrong-answer");
-      $("body").addClass("badBody");
+      $("#timerContainer").addClass("wrongAnswerTimer");
+      $("body").addClass("bodyBlink");
       setTimeout(function () {
-        $("#timerContainer").removeClass("wrong-answer");
-        $("body").removeClass("badBody");
+        $("#timerContainer").removeClass("wrongAnswerTimer");
+        $("body").removeClass("bodyBlink");
       }, 2000);
     }
 
@@ -127,7 +106,7 @@ $(document).ready(function () {
     quizEnd = true;
     $("#quizContainer").hide();
     $("#welcomeContainer").hide();
-    $(".wrong-answer").hide();
+    $(".wrongAnswerTimer").hide();
 
     var resultText = "";
     if (score >= questions.length * 0.8) {

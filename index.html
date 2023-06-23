@@ -13,39 +13,22 @@
   </head>
   <center>
     <body class="body">
-
-
       
 <!-- TIMER -->
-<div id="timer">
-        <div id="timerContainer" style="display: hidden;">
-        </div></div>
-
-<!-- MODAL -->
-
-<div id="myModal" class="modal fade show" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Welcome to the Page!</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p>This is the content of the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+  <div id="timer">
+    <div id="timerContainer" style="display: hidden;">
+    </div></div>
 
 <!-- START DIV -->
       <div id="container">
         <div id="welcomeContainer" style="display: block;">
-          <button class="button" id="startButton">Start Quiz</button>
+          <h1>Welcome!</h1>
+        <p id="welcomeText">This is a timed JavaScript quiz game<br>
+        You have 60 seconds to answer all the questions<br>
+        Incorrect answers will cost you 3 seconds<br>
+        If the timer runs out, you lose<br></p>
+          <button class="button" id="startButton">Can you beat my quiz game?</button>
         </div>
-
 
 <!-- QUIZ DIV -->
         <div id="quizContainer" style="display: none;">
@@ -53,7 +36,7 @@
           <ul id="choices"></ul>
         </div>
 
-        <!-- RESULTS & SAVE DIV -->
+<!-- RESULTS & SAVE DIV -->
 <div id="resultContainer" style="display: none;">
   <h1>Good Game</h1>
   <p id="result"></p>
