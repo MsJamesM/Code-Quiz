@@ -143,7 +143,11 @@ $(document).ready(function () {
     }
   }
 
-  // starts the quiz
+  // Bind the click event to the startButton
+  $("#startButton").click(function () {
+    startQuiz();
+  });
+
   function startQuiz() {
     $("#startButton").hide();
     $("#welcomeContainer").hide();
@@ -157,6 +161,5 @@ $(document).ready(function () {
     displaySavedScores();
   }
 
-  startQuiz();
   loadSavedScores();
 });

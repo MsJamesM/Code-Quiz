@@ -11,6 +11,10 @@
     background-color: #ffffff;
 }
 
+#welcomeContainer {
+    z-index: 5;
+}
+
 #quiz {
     grid: column;
 }
