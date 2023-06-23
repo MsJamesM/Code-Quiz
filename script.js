@@ -1,6 +1,8 @@
 $(document).ready(function () {
   var currentQuestion = 0;
   var score = 0;
+  var timer;
+  var timeLeft = 60;
   const questions = [
     {
       question: "Question #1",
@@ -13,6 +15,19 @@ $(document).ready(function () {
       correctAnswer: 3,
     },
   ];
+
+  // timer upon "start"
+
+  function startTimer() {
+    timer = setInterval(function () {
+      timeLeft--;
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        showResult();
+      }
+      $("#timerContainer").text("Time left: " + timeLeft + " seconds");
+    }, 1000);
+  }
 
   // displays questions
 
@@ -40,6 +55,12 @@ $(document).ready(function () {
     let question = questions[currentQuestion];
     if (parseInt(selectedChoice) === question.correctAnswer) {
       score++;
+    } else {
+      timeLeft -= 3;
+      if (timeLeft < 0) {
+        timeLeft = 0;
+      }
+      $("#timerContainer").text("Time left: " + timeLeft + " seconds");
     }
 
     currentQuestion++;
@@ -63,7 +84,8 @@ $(document).ready(function () {
 
   function startQuiz() {
     $("#startButton").hide();
-    $("#welcomeContainer").hide(); // Hide the welcomeContainer
+    $("#welcomeContainer").hide();
+    startTimer();
     $("#quizContainer").show();
     showQuestion();
     $("#submit").click(checkAnswer);
