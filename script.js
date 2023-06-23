@@ -28,7 +28,6 @@ $(document).ready(function () {
   ];
 
   // timer upon "start"
-
   function startTimer() {
     timer = setInterval(function () {
       if (quizEnd) {
@@ -46,14 +45,13 @@ $(document).ready(function () {
   }
 
   // displays questions
-
   function showQuestion() {
-    let question = questions[currentQuestion];
+    var question = questions[currentQuestion];
     $("#question").text(question.question);
 
-    let choices = question.choices;
+    var choices = question.choices;
     $("#choices").empty();
-    for (let i = 0; i < choices.length; i++) {
+    for (var i = 0; i < choices.length; i++) {
       $("#choices").append(
         "<li><input type='radio' name='choice' value='" +
           i +
@@ -65,10 +63,9 @@ $(document).ready(function () {
   }
 
   // checks correct answers
-
   function checkAnswer() {
-    let selectedChoice = $("input[name='choice']:checked").val();
-    let question = questions[currentQuestion];
+    var selectedChoice = $("input[name='choice']:checked").val();
+    var question = questions[currentQuestion];
     if (parseInt(selectedChoice) === question.correctAnswer) {
       score++;
     } else {
@@ -91,19 +88,62 @@ $(document).ready(function () {
     }
   }
 
-  // displays final results
-
+  // displays final results and saves scores
   function showResult() {
     quizEnd = true;
     $("#quizContainer").hide();
     $("#welcomeContainer").hide();
     $(".wrong-answer").hide();
-    $("#result").text(
-      "Your score is: " + score + " out of " + questions.length
-    );
+
+    var resultText = "";
+    if (score >= questions.length * 0.8) {
+      resultText =
+        score + " out of " + questions.length + "? You sure know your stuff!";
+    } else if (score >= questions.length * 0.5) {
+      resultText = score + " out of " + questions.length + ". Not too shabby!";
+    } else {
+      resultText =
+        score +
+        " out of " +
+        questions.length +
+        ". Maybe this isn't the career for you.";
+    }
     $("#resultContainer").show();
+    $("#customTextContainer").text(resultText);
+    saveScore(score);
+    displaySavedScores();
   }
 
+  // saves and displays scores
+  function saveScore(score) {
+    var savedScores = localStorage.getItem("scores");
+    if (savedScores) {
+      savedScores = JSON.parse(savedScores);
+      savedScores.push(score);
+    } else {
+      savedScores = [score];
+    }
+    localStorage.setItem("scores", JSON.stringify(savedScores));
+  }
+
+  function displaySavedScores() {
+    var savedScores = localStorage.getItem("scores");
+    if (savedScores) {
+      savedScores = JSON.parse(savedScores);
+      var savedScoresList = $("#savedScores");
+      savedScoresList.empty();
+      for (var i = 0; i < savedScores.length; i++) {
+        var scoreDate = new Date().toLocaleDateString();
+        var scoreText = "Your score was: " + savedScores[i];
+
+        savedScoresList.append(
+          "<li>" + scoreDate + " - " + scoreText + "</li>"
+        );
+      }
+    }
+  }
+
+  // starts the quiz
   function startQuiz() {
     $("#startButton").hide();
     $("#welcomeContainer").hide();
@@ -113,5 +153,10 @@ $(document).ready(function () {
     $("#submit").click(checkAnswer);
   }
 
-  $("#startButton").click(startQuiz);
+  function loadSavedScores() {
+    displaySavedScores();
+  }
+
+  startQuiz();
+  loadSavedScores();
 });
