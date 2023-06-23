@@ -6,24 +6,24 @@ $(document).ready(function () {
   var quizEnd = false;
   const questions = [
     {
-      question: "Question #1",
-      choices: ["answer #1", "answer #2", "answer #3"],
-      correctAnswer: 1,
+      question: "Is the sky blue?",
+      choices: ["Yes", "It's pink", "No"],
+      correctAnswer: 0,
     },
     {
-      question: "Question #2",
-      choices: ["answer #1", "answer #2", "answer #3"],
-      correctAnswer: 3,
-    },
-    {
-      question: "Question #3",
-      choices: ["answer #1", "answer #2", "answer #3"],
+      question: "Are computers alive?",
+      choices: ["Maybe", "Oh definitely", "No... right?"],
       correctAnswer: 2,
     },
     {
-      question: "Question #4",
-      choices: ["answer #1", "answer #2", "answer #3"],
-      correctAnswer: 3,
+      question: "Plants - friend or foe",
+      choices: ["Mortal enemies", "Friend", "Fern"],
+      correctAnswer: 1,
+    },
+    {
+      question: "Mouse",
+      choices: ["Mice", "Mouses", "Mooses"],
+      correctAnswer: 2,
     },
   ];
 
@@ -53,19 +53,21 @@ $(document).ready(function () {
     $("#choices").empty();
     for (var i = 0; i < choices.length; i++) {
       $("#choices").append(
-        "<li><input type='radio' name='choice' value='" +
+        "<button type='button' class='choiceButton' data-choice='" +
           i +
           "'>" +
           choices[i] +
-          "</li>"
+          "</button>"
       );
     }
+    $(".choiceButton").click(checkAnswer);
   }
 
   // checks correct answers
   function checkAnswer() {
-    var selectedChoice = $("input[name='choice']:checked").val();
+    var selectedChoice = $(this).data("choice");
     var question = questions[currentQuestion];
+
     if (parseInt(selectedChoice) === question.correctAnswer) {
       score++;
     } else {
@@ -75,8 +77,10 @@ $(document).ready(function () {
       }
       $("#timerContainer").text("Time left: " + timeLeft + " seconds");
       $("#timerContainer").addClass("wrong-answer");
+      $("body").addClass("badBody");
       setTimeout(function () {
         $("#timerContainer").removeClass("wrong-answer");
+        $("body").removeClass("badBody");
       }, 2000);
     }
 
@@ -143,7 +147,6 @@ $(document).ready(function () {
     }
   }
 
-  // Bind the click event to the startButton
   $("#startButton").click(function () {
     startQuiz();
   });
