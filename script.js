@@ -6,24 +6,24 @@ $(document).ready(function () {
   var quizEnd = false;
   const questions = [
     {
-      question: "Is the sky blue?",
-      choices: ["Yes", "It's pink", "No"],
-      correctAnswer: 0,
-    },
-    {
-      question: "Do you computers alive?",
-      choices: ["Maybe", "Oh definitely", "No... right?"],
+      question: "What year did JavaScript first appear?",
+      choices: ["1991", "1996", "1995"],
       correctAnswer: 2,
     },
     {
-      question: "Plants - friend or foe",
-      choices: ["Mortal enemies", "Friend", "Fern"],
+      question: "Which is an example of a JavaScript variable?",
+      choices: ["Con", "Let", "Vars"],
       correctAnswer: 1,
     },
     {
-      question: "Mouse",
-      choices: ["Mice", "Mouses", "Mooses"],
-      correctAnswer: 2,
+      question: "Which is correct?",
+      choices: ["GetElement", "GetElementById", "GetId"],
+      correctAnswer: 1,
+    },
+    {
+      question: "Which should your JavaScript be placed under?",
+      choices: ["<head>", "<body>", "<HTML>"],
+      correctAnswer: 0,
     },
   ];
 
