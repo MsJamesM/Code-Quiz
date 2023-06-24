@@ -1,5 +1,6 @@
 * {
     font-family: 'Open Sans', sans-serif;
+    overflow: hidden;
 }
 
 .body {
@@ -23,7 +24,7 @@
 
 h1 {
     padding-bottom: 3%;
-    color: #d3235a;
+    color: #e31f5c;
     text-shadow: 0px 1px 2px #2e001ca9;
 }
 
@@ -41,19 +42,20 @@ h1 {
 
 #timer {
     padding-top: 4%;
-    font-size: 30px;
+    font-size: 23px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', verdana;
     color: #ee045a;
-    text-shadow: 0px 1px 2px #3f0027;
+    text-shadow: 0px 1px 2px #3f0027c1;
 }
 
-.fa-hourglass-start {
+.fa-hourglass {
     padding-right: 1%;
-    font-size: 27px;
+    font-size: 20px;
 }
 
 .wrongAnswerTimer {
-    color: #ff6aa3;
+    color: #ff7094;
+    text-shadow: 1px 1px 1px 2px #3f0027;
 }
 
 #container {
@@ -68,8 +70,9 @@ h1 {
 }
 
 #question {
-    color: #ffcefb;
-    text-shadow: 0px 1px 2px #6f0045;
+    color: #ffadb8;
+    font-size: 35px;
+    text-shadow: 0px 1px 2px #32001f;
 }
 
 #choices {
@@ -85,22 +88,37 @@ h1 {
     padding: 3%;
     margin-top: 2%;
     border: none;
-    color: #fac7f6;
-    text-shadow: 0px 1px 2px #340020;
-    background-color: #670040a1;
-    box-shadow: 0px 2px 5px #69002d95;
+    color: #760055;
+    background-color: #ffb3c0;
+    box-shadow: 0px 2px 5px #5a002795;
     font-size: 20px;
     transition-duration: 0.4s;
 }
 
 .choiceButton:hover,
 .button:hover {
-    background-color: #cd005296;
-    color: white;
+    background-color: #ffc0ca;
+    color: #c77e8a;
 }
 
 .button {
     padding: 2%;
     font-size: 22px;
-    color: #ffb0d5;
+    color: #760055;
+}
+
+#resultContainer {
+    margin-top: none;
+    position: relative;
+    z-index: 3;
+    height: 500px;
+    overflow: hidden;
+    color: white;
+    background-image: transparent;
+    -webkit-mask-image: linear-gradient(to top, transparent, #830051);
+    mask-image: linear-gradient(to top, transparent, #830051);
+}
+
+#savedScores {
+    list-style: none;
 }
