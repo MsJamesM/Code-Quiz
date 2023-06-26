@@ -104,6 +104,7 @@ $(document).ready(function () {
   // displays final results and saves scores
   function showResult() {
     quizEnd = true;
+    clearInterval(timer); // Stop the timer
     $("#quizContainer").hide();
     $("#welcomeContainer").hide();
     $(".wrongAnswerTimer").hide();

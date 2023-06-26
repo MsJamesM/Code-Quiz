@@ -97,7 +97,7 @@ h1 {
 
 .choiceButton:hover,
 .button:hover {
-    background-color: #ffc0ca;
+    background-color: #ffd5dc;
     color: #c77e8a;
 }
 
@@ -119,6 +119,13 @@ h1 {
     mask-image: linear-gradient(to top, transparent, #830051);
 }
 
+#scoreText {
+    color: #ffc2ca;
+    text-shadow: 0px 1px 2px #32001f;
+}
+
 #savedScores {
     list-style: none;
+    color: #ffadb8;
+    text-shadow: 0px 1px 2px #32001f;
 }
