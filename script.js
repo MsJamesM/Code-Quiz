@@ -25,6 +25,21 @@ $(document).ready(function () {
       choices: ["<head>", "<body>", "<HTML>"],
       correctAnswer: 0,
     },
+    {
+      question: "Which label catches all values except those specified?",
+      choices: ["Try", "Catch", "Default", "Grab"],
+      correctAnswer: 2,
+    },
+    {
+      question: "What is NaN short for?",
+      choices: ["Not applicable numeric", "Needs a number", "Not a number"],
+      correctAnswer: 2,
+    },
+    {
+      question: "JavaScript is which type of programming language?",
+      choices: ["Server side", "Client side", "Both", "Neither"],
+      correctAnswer: 2,
+    },
   ];
 
   // timer upon "start"
